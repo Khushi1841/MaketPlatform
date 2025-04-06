@@ -34,8 +34,21 @@ const RegisterPage = () => {
     setIsLoading(true);
 
     try {
-      await register(name, email, password, role);
-      navigate('/dashboard');
+      const user = await register(name, email, password, role);
+      // Navigate based on role
+      switch (role) {
+        case 'student':
+          navigate('/dashboard/student');
+          break;
+        case 'freelancer':
+          navigate('/dashboard/freelancer');
+          break;
+        case 'company':
+          navigate('/dashboard/company');
+          break;
+        default:
+          navigate('/dashboard');
+      }
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message);

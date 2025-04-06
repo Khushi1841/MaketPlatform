@@ -24,12 +24,41 @@ const LoginPage = () => {
 
     try {
       await login(email, password);
-      navigate('/dashboard');
+      // Use the role from the mock data based on email
+      if (email === 'john@example.com') {
+        navigate('/dashboard/student');
+      } else if (email === 'jane@example.com') {
+        navigate('/dashboard/freelancer');
+      } else if (email === 'info@techinnovations.com') {
+        navigate('/dashboard/company');
+      } else {
+        navigate('/dashboard');
+      }
     } catch (err) {
       setError('Invalid email or password');
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const getDemoCredentials = () => {
+    return [
+      {
+        role: 'Student',
+        email: 'john@example.com',
+        description: 'Access student learning dashboard'
+      },
+      {
+        role: 'Freelancer',
+        email: 'jane@example.com',
+        description: 'Access freelancer project dashboard'
+      },
+      {
+        role: 'Company',
+        email: 'info@techinnovations.com',
+        description: 'Access company recruitment dashboard'
+      }
+    ];
   };
 
   return (
@@ -80,13 +109,21 @@ const LoginPage = () => {
                 </Button>
                 
                 <div className="text-center text-sm">
-                  For demo, you can login with:
-                  <div className="mt-1 text-muted-foreground">
-                    <p>Student: john@example.com</p>
-                    <p>Freelancer: jane@example.com</p>
-                    <p>Company: info@techinnovations.com</p>
+                  <p className="font-medium mb-2">Demo Accounts:</p>
+                  <div className="space-y-2 text-muted-foreground">
+                    {getDemoCredentials().map((cred) => (
+                      <div 
+                        key={cred.role} 
+                        className="p-2 rounded-md bg-muted/50 cursor-pointer hover:bg-muted"
+                        onClick={() => setEmail(cred.email)}
+                      >
+                        <p className="font-medium text-primary">{cred.role}</p>
+                        <p className="text-xs">{cred.email}</p>
+                        <p className="text-xs text-muted-foreground">{cred.description}</p>
+                      </div>
+                    ))}
                   </div>
-                  <p className="text-xs text-muted-foreground mt-1">(Any password will work)</p>
+                  <p className="text-xs text-muted-foreground mt-2">(Any password will work)</p>
                 </div>
               </div>
             </form>
