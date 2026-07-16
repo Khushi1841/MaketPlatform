@@ -1,50 +1,59 @@
+# MaketPlatform
 
+MaketPlatform is a marketplace-style collaboration platform that connects students, freelancers, companies and mentors around real-world projects, mentorship and community discussion.
 
-Follow these steps:
+## Features
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+- Role-aware user experience for students, freelancers, companies and mentors.
+- Project discovery and detail pages.
+- Freelancer, company and mentorship listing flows.
+- Dashboard pages for students, freelancers and companies.
+- Authentication screens for login and registration.
+- Community discussion room and community landing page.
+- Reusable UI components built with shadcn-style primitives.
+- Mock data layer for users, projects, skills and categories.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## Tech Stack
 
-# Step 3: Install the necessary dependencies.
-npm i
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- shadcn-ui style components
+- Radix UI primitives
+- React Router
+- TanStack Query
+- React Hook Form
+- Zod
+- Lucide React
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+## Project Structure
+
+```text
+src/
+  components/       shared cards, layout and UI primitives
+  contexts/         auth context
+  data/             mock users, projects, skills and categories
+  pages/            home, projects, freelancers, companies, mentorship, dashboard and auth pages
+  types/            global TypeScript types
+```
+
+## Getting Started
+
+```bash
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Build for production:
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+npm run build
+```
 
-**Use GitHub Codespaces**
+## Resume Highlights
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with .
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-- Mongodb
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/075050c2-2fbc-444c-8eeb-c55ca21d3d9b) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+- Built a TypeScript React marketplace interface with multiple user roles and dashboard flows.
+- Created reusable project, user and skill components for scalable UI composition.
+- Used a typed mock data model to simulate real marketplace entities and interactions.
+- Organized app pages across projects, mentorship, community, dashboards and authentication.
